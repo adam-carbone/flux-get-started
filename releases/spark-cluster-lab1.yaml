@@ -1,0 +1,23 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: spark-cluster
+  namespace: ml-lab
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: semver:~1.0.0
+spec:
+  releaseName: spark-cluster
+  chart:
+    git: ssh://git@stash.saas-p.com:7999/btpa/integration-k8.git
+    path: flux/charts/spark
+    ref: master
+values:
+    Master:
+        ImageTag: 2.4.3
+    Worker:
+        ImageTag: 2.4.3
+    Zeppelin:
+        Ingress:
+            Enabled: true
