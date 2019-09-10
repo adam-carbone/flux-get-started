@@ -10,8 +10,8 @@ metadata:
 spec:
   releaseName: spark-cluster
   chart:
-    git: ssh://git@stash.saas-p.com:7999/btpa/integration-k8.git
-    path: flux/charts/spark
+    git: ssh://git@github.com/adam-carbone/flux-get-started
+    path: charts/spark
     ref: master
 values:
     Master:
